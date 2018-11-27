@@ -1,5 +1,5 @@
 # pydatras.py: A Python library for downloading ICES/CIEM DATRAS datasets
-# Copyright (C) 2018  Jorge Tornero, Instituto Español de Oceanografía
+# Copyright (C) 2018  Jorge Tornero, Spanish Institute of Oceanography
 # jorge.tornero[at]ieo.es
 
 # This program is free software: you can redistribute it and/or modify
