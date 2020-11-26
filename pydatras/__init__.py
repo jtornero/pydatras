@@ -151,12 +151,14 @@ class DATRASClient(object):
                 pass
         
         # Cleaning the dataframe
-        
-        string_fields = downloaded_data.select_dtypes(['object'])
-        
-        downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
-        
-        downloaded_data.reset_index()
+        # There have been some troble with recent versions of DATRAS/Python so better
+        # just let the error slip away for now.
+        try:        
+            string_fields = downloaded_data.select_dtypes(['object'])
+            downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
+            downloaded_data.reset_index()
+        except:
+            pass
         
         print("%i out of %i Datasets downloaded" %(downloaded, datasets_number))
         return downloaded_data
@@ -235,12 +237,12 @@ class DATRASClient(object):
                 downloaded_data = pd.merge(downloaded_data, names, on='Valid_Aphia')
                 
         # Cleaning the dataframe
-        
-        string_fields = downloaded_data.select_dtypes(['object'])
-        
-        downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
-        
-        downloaded_data.reset_index()
+        try:
+            string_fields = downloaded_data.select_dtypes(['object'])
+            downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
+            downloaded_data.reset_index()
+        except:
+           pass
         
         return downloaded_data
 
@@ -300,13 +302,12 @@ class DATRASClient(object):
             return
         
         # Cleaning the dataframe
-      
-        string_fields = downloaded_data.select_dtypes(['object'])
-        
-        downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
-        
-        downloaded_data.reset_index()
-        
+        try:
+            string_fields = downloaded_data.select_dtypes(['object'])
+            downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
+            downloaded_data.reset_index()
+        except:
+            pass
         
         print('Survey list downloaded')
         return downloaded_data
@@ -346,12 +347,12 @@ class DATRASClient(object):
                 pass
         
         # Cleaning the dataframe
-        
-        string_fields = downloaded_data.select_dtypes(['object'])
-        
-        downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
-        
-        downloaded_data.reset_index()
+        try:
+            string_fields = downloaded_data.select_dtypes(['object'])
+            downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
+            downloaded_data.reset_index()
+        except:
+            pass
         
         print("%i out of %i surveys downloaded" %(downloaded, datasets_number))
         return downloaded_data
@@ -401,12 +402,12 @@ class DATRASClient(object):
                 pass
         
         # Cleaning the dataframe
-        
-        string_fields = downloaded_data.select_dtypes(['object'])
-        
-        downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
-        
-        downloaded_data.reset_index()
+        try:
+            string_fields = downloaded_data.select_dtypes(['object'])
+            downloaded_data[string_fields.columns] = string_fields.apply(lambda x: x.str.strip())
+            downloaded_data.reset_index()
+        except:
+            pass
         
         print("%i out of %i Datasets downloaded" %(downloaded, datasets_number))
         return downloaded_data
