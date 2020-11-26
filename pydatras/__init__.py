@@ -83,7 +83,7 @@ class DATRASClient(object):
         """
         try:
             # It seems that DATRAS web service doesn't support strict
-            self.datras_client = Client(url, settings=Settings(strict=FALSE))
+            self.datras_client = Client(url, settings=Settings(strict=False))
         except:
             self.datras_client = None
     
