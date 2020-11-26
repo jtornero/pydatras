@@ -75,14 +75,15 @@ class DATRASClient(object):
         
         self.setWormsClient(worms_url)
         
-    def setDatrasClient(self, url, settings):
+    def setDatrasClient(self, url):
         """
         Creates a ICES/CIEM DATRAS WebServices client with the provided url.
         Parameters:
             url: string with the URL of the ICES/CIEM DATRAS WebService
         """
         try:
-            self.datras_client = Client(url)
+            # It seems that DATRAS web service doesn't support strict
+            self.datras_client = Client(url, settings=Settings(strict=FALSE))
         except:
             self.datras_client = None
     
@@ -93,8 +94,8 @@ class DATRASClient(object):
             url: string with the URL of the WORMS WebService
         """
         try:
-            # It seems thad DATRAS web service doesn't support strict
-            self.worms_client = Client(url,settings=Settings(strict=FALSE))
+            
+            self.worms_client = Client(url)
         except:
             self.worms_client = None
     
