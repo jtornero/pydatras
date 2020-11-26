@@ -17,7 +17,7 @@
 
 
 from __future__ import print_function
-from zeep.client import Client
+from zeep.client import Client, Settings
 from zeep.helpers import serialize_object
 from itertools import product
 import pandas as pd
@@ -75,7 +75,7 @@ class DATRASClient(object):
         
         self.setWormsClient(worms_url)
         
-    def setDatrasClient(self, url):
+    def setDatrasClient(self, url, settings):
         """
         Creates a ICES/CIEM DATRAS WebServices client with the provided url.
         Parameters:
@@ -93,7 +93,8 @@ class DATRASClient(object):
             url: string with the URL of the WORMS WebService
         """
         try:
-            self.worms_client = Client(url)
+            # It seems thad DATRAS web service doesn't support strict
+            self.worms_client = Client(url,settings=Settings(strict=FALSE))
         except:
             self.worms_client = None
     
